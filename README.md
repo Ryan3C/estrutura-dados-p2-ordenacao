@@ -137,3 +137,4 @@ Regra de ouro: Entregue cada arquivo (index.html, styles.css e app.js) em um blo
 #### Relato de Revisão, Testes e Ajustes Manuais
 > Foi necessário registrar melhor refinamento dos prompts, para a IA obter maior entendimento sobre as requisições necessárias e concluir este trabalho.
 > Formatação do prompt no Markdown. Ao colar o prompt 1 no README, o trecho __name__== "__main__" foi anexado como negrito e ilegível, sendo necessário ser colocado em crasse.
+> Organização da Estrutura de Arquivos e Repositório: Durante a preparação local dos arquivos e o envio ao GitHub, revisei as extensões dos arquivos (removendo sufixos `.txt` gerados na criação inicial) e estruturei manualmente a hierarquia de pastas (`src/algoritmo.py` e `src/demo/`), garantindo que os caminhos relativos entre `index.html`, `styles.css` e `app.js` funcionassem corretamente tanto localmente quanto hospedados no repositório.
