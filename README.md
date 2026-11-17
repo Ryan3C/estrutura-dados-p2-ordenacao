@@ -61,8 +61,11 @@ O paradigma **Dividir-para-Conquistar** (*Divide and Conquer*) resolve um proble
 | Métrica / Cenário | Quick Sort (Pivô Fixo) | Merge Sort |
 | :--- | :---: | :---: |
 | **Tempo — Melhor Caso** | $O(n \log n)$ | $O(n \log n)$ |
+
 | **Tempo — Caso Médio** | $O(n \log n)$ | $O(n \log n)$ |
+
 | **Tempo — Pior Caso** | **$O(n^2)$** | **$O(n \log n)$** |
+
 | **Espaço Auxiliar** | $O(\log n)$ a $O(n)$ *(pilha recursiva)* | $O(n)$ *(vetores auxiliares)* |
 | **Estabilidade** | Não estável | Estável |
 | **Ordenação *In-Place*** | Sim | Não |
@@ -86,7 +89,7 @@ O paradigma **Dividir-para-Conquistar** (*Divide and Conquer*) resolve um proble
 
 ### Diário de Engenharia com IA
 
-Registro transparente do processo de engenharia assistida por Inteligência Artificial na construção deste projeto:
+Registro transparente do processo de engenharia assistida por Inteligência Artificial (Gemini)  na construção deste projeto:
 
 #### Prompt 1 — Implementação dos Algoritmos Base (`src/algoritmo.py`)
 > **Prompt utilizado:**  
