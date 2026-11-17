@@ -61,11 +61,8 @@ O paradigma **Dividir-para-Conquistar** (*Divide and Conquer*) resolve um proble
 | Métrica / Cenário | Quick Sort (Pivô Fixo) | Merge Sort |
 | :--- | :---: | :---: |
 | **Tempo — Melhor Caso** | $O(n \log n)$ | $O(n \log n)$ |
-
 | **Tempo — Caso Médio** | $O(n \log n)$ | $O(n \log n)$ |
-
 | **Tempo — Pior Caso** | **$O(n^2)$** | **$O(n \log n)$** |
-
 | **Espaço Auxiliar** | $O(\log n)$ a $O(n)$ *(pilha recursiva)* | $O(n)$ *(vetores auxiliares)* |
 | **Estabilidade** | Não estável | Estável |
 | **Ordenação *In-Place*** | Sim | Não |
@@ -101,7 +98,7 @@ Requisitos obrigatórios (não omita nada):
 2. No quick_sort, utilize uma estratégia determinística de pivô fixo (ex: último ou primeiro elemento) para que seja possível demonstrar claramente o pior caso O(n²) em arrays já ordenados.
 3. Use type hints em todas as funções e escreva docstrings claras em português explicando os parâmetros, retornos e complexidade.
 4. Inclua contadores explícitos para número de comparações e número de trocas/movimentações (swaps) em ambos os algoritmos, retornando o array ordenado junto com essas métricas.
-5. No bloco if __name__ == "__main__":, crie 3 cenários de teste comentados:
+5. No bloco íf __name__ == "__main__":, crie 3 cenários de teste comentados:
 	• Caso Comum: Lista desordenada aleatória.
 	• Caso de Borda: Lista vazia, com 1 elemento ou com elementos repetidos.
 	• Pior Caso: Lista já ordenada em ordem crescente (provando o salto de operações no Quick Sort O(n²) frente à estabilidade \(O(n \log n)\) do Merge Sort).
@@ -139,3 +136,4 @@ Regra de ouro: Entregue cada arquivo (index.html, styles.css e app.js) em um blo
 
 #### Relato de Revisão, Testes e Ajustes Manuais
 > Foi necessário registrar melhor refinamento dos prompts, para a IA obter maior entendimento sobre as requisições necessárias e concluir este trabalho.
+> Formatação do prompt no Markdown. Ao colar o prompt 1 no README, o trecho __name__== "__main__" foi anexado como negrito e ilegível, sendo necessário ser colocado em crasse.
