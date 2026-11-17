@@ -90,7 +90,7 @@ Registro transparente do processo de engenharia assistida por Inteligência Arti
 
 #### Prompt 1 — Implementação dos Algoritmos Base (`src/algoritmo.py`)
 > **Prompt utilizado:**  
-> `Atue como um Engenheiro de Software Sênior e Professor Universitário de Estrutura de Dados.
+> Atue como um Engenheiro de Software Sênior e Professor Universitário de Estrutura de Dados.
 Contexto: Estou desenvolvendo o Trabalho P2 da disciplina de Estrutura de Dados. O tema escolhido é: Tema A — Ordenação Dividir-para-Conquistar: Quick Sort vs. Merge Sort.
 Tarefa: Crie apenas o código completo e funcional do arquivo src/algoritmo.py.
 Requisitos obrigatórios (não omita nada):
@@ -128,11 +128,11 @@ Regra de ouro: Entregue cada arquivo (index.html, styles.css e app.js) em um blo
 • Resumo teórico explicando como o paradigma Dividir-para-Conquistar funciona em cada um dos dois algoritmos e exemplos reais de uso na computação.
 • Tabela comparativa de Complexidade Assintótica (Big-O) de Tempo (Melhor, Médio e Pior Caso) e Espaço Auxiliar para Quick Sort e Merge Sort, explicando matematicamente por que o pior caso O(n²) ocorre no Quick Sort com pivô fixo e por que o Merge Sort mantém \(O(n \log n)\).
 • Seção "Diário de Engenharia com IA" já formatada com espaço para os 3 prompts e para o relato de ajuste manual.
-2. Um roteiro falado para o meu Vídeo Explicativo (4 a 5 minutos):
+2. Um roteiro falado para o meu Vídeo Explicativo (4 a 7 minutos):
 • Dividido exatamente conforme a rubrica:
 	• Parte 1 — Conceito e Complexidade (~1 min): Apresentação e explicação do Big-O.
-	• Parte 2 — Simulação Passo a Passo (~2 min): O que clicar no simulador (mostrando o botão Cenário Pior Caso e o Próximo Passo) para provar a diferença de comparações na tela.
+	• Parte 2 — Simulação Passo a Passo (~3 min): O que clicar no simulador (mostrando o botão Cenário Pior Caso e o Próximo Passo) para provar a diferença de comparações na tela.
 	• Parte 3 — Explicação do Código Python (~1,5 min): Onde apontar no src/algoritmo.py a recursão, a escolha do pivô, a intercalação (merge) e os contadores de operações.
 
 #### Relato de Revisão, Testes e Ajustes Manuais
-> `[Descreva aqui as validações e ajustes que você realizou manualmente no código ou na interface — por exemplo: execução dos testes de borda com listas vazias/unitárias no terminal, conferência matemática das 190 comparações no pior caso de n=20, ajustes visuais de cores/velocidade no simulador ou formatação final do repositório.]`
+> Foi necessário registrar melhor refinamento dos prompts, para a IA obter maior entendimento sobre as requisições necessárias e concluir este trabalho.
