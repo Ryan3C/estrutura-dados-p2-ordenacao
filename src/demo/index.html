@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Visual — Quick Sort vs. Merge Sort | Estrutura de Dados (P2)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Cabeçalho Acadêmico / Engenharia -->
+    <header class="app-header">
+      <div class="header-title-group">
+        <span class="badge-disciplina">Estrutura de Dados • Trabalho P2 • Tema A</span>
+        <h1>Ordenação Dividir-para-Conquistar: Quick Sort vs. Merge Sort</h1>
+        <p class="header-subtitle">
+          Simulador interativo passo a passo com pivô fixo determinístico (Lomuto) e intercalação estável
+        </p>
+      </div>
+
+      <!-- Seletor de Modo de Visualização -->
+      <div class="mode-switcher" role="group" aria-label="Seleção de Algoritmo">
+        <button type="button" class="mode-btn active" data-mode="quick">
+          Quick Sort
+        </button>
+        <button type="button" class="mode-btn" data-mode="merge">
+          Merge Sort
+        </button>
+        <button type="button" class="mode-btn" data-mode="compare">
+          Comparar Ambos
+        </button>
+      </div>
+    </header>
+
+    <!-- Painel de Configuração de Cenários e Controles -->
+    <section class="control-panel" aria-label="Controles da Simulação">
+      <!-- Linha 1: Cenários Pré-configurados e Entrada Customizada -->
+      <div class="control-row scenarios-row">
+        <div class="control-group">
+          <span class="group-label">Cenários de Teste:</span>
+          <div class="btn-group">
+            <button type="button" id="btn-scenario-average" class="btn btn-secondary active-scenario">
+              Caso Médio (Aleatório)
+            </button>
+            <button type="button" id="btn-scenario-worst" class="btn btn-warning-outline">
+              Pior Caso (Ordenado — O(n²))
+            </button>
+            <button type="button" id="btn-scenario-reversed" class="btn btn-secondary">
+              Array Invertido
+            </button>
+          </div>
+        </div>
+
+        <form id="custom-array-form" class="custom-input-group">
+          <label for="custom-array-input" class="group-label">Customizado:</label>
+          <input
+            type="text"
+            id="custom-array-input"
+            placeholder="Ex: 38, 27, 43, 3, 9, 82, 10"
+            aria-label="Digite números inteiros separados por vírgula"
+          />
+          <button type="submit" class="btn btn-secondary">Aplicar</button>
+        </form>
+      </div>
+
+      <div id="validation-message" class="validation-message" role="alert" hidden></div>
+
+      <!-- Linha 2: Controles de Execução e Velocidade -->
+      <div class="control-row playback-row">
+        <div class="btn-group playback-buttons">
+          <button type="button" id="btn-play" class="btn btn-primary">
+            &#9654; Executar
+          </button>
+          <button type="button" id="btn-pause" class="btn btn-secondary" disabled>
+            &#10074;&#10074; Pausar
+          </button>
+          <button type="button" id="btn-prev" class="btn btn-secondary" disabled>
+            &#9664; Anterior
+          </button>
+          <button type="button" id="btn-step" class="btn btn-secondary">
+            Próximo Passo &#9654;&#10074;
+          </button>
+          <button type="button" id="btn-reset" class="btn btn-danger-outline">
+            &#8634; Reiniciar
+          </button>
+        </div>
+
+        <div class="speed-control">
+          <label for="speed-slider" class="group-label">Velocidade:</label>
+          <input
+            type="range"
+            id="speed-slider"
+            min="1"
+            max="100"
+            value="65"
+            aria-label="Controle de velocidade da animação"
+          />
+          <span id="speed-label" class="speed-badge">280 ms</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legenda Visual de Estados -->
+    <section class="legend-bar" aria-label="Legenda de Cores">
+      <span class="legend-title">Legenda:</span>
+      <div class="legend-items">
+        <span class="legend-item">
+          <i class="swatch swatch-default"></i> Não ordenado
+        </span>
+        <span class="legend-item">
+          <i class="swatch swatch-active"></i> Sub-array ativo
+        </span>
+        <span class="legend-item">
+          <i class="swatch swatch-pivot"></i> Pivô (Quick Sort)
+        </span>
+        <span class="legend-item">
+          <i class="swatch swatch-comparing"></i> Comparando
+        </span>
+        <span class="legend-item">
+          <i class="swatch swatch-swapping"></i> Troca (Swap) / Sobrescrita
+        </span>
+        <span class="legend-item">
+          <i class="swatch swatch-sorted"></i> Ordenado
+        </span>
+      </div>
+    </section>
+
+    <!-- Área Principal de Visualização (1 ou 2 Algoritmo(s)) -->
+    <main id="visualizer-grid" class="visualizer-grid single-mode">
+      <!-- Card do Quick Sort -->
+      <article id="card-quick" class="algo-card">
+        <div class="card-header">
+          <div>
+            <h2>Quick Sort <span class="algo-tag">Pivô Fixo (Último Elemento)</span></h2>
+            <p class="algo-desc">
+              Particionamento de Lomuto in-place. Degrada para <strong>O(n²)</strong> em vetores já ordenados.
+            </p>
+          </div>
+          <div class="card-badges">
+            <span id="status-quick" class="status-pill status-ready">Pronto</span>
+            <span class="complexity-badge">Pior: O(n²) | Médio: O(n log n)</span>
+          </div>
+        </div>
+
+        <!-- Métricas em Tempo Real -->
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <span class="metric-label">Comparações</span>
+            <strong id="comp-quick" class="metric-value">0</strong>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Trocas (Swaps)</span>
+            <strong id="swap-quick" class="metric-value">0</strong>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Progresso (Passos)</span>
+            <strong id="step-quick" class="metric-value">0 / 0</strong>
+          </div>
+        </div>
+
+        <!-- Gráfico de Barras Proporcionais -->
+        <div class="chart-wrapper">
+          <div id="bars-quick" class="bars-container" aria-label="Visualização em barras do Quick Sort"></div>
+        </div>
+
+        <!-- Painel de Log Explicativo -->
+        <div class="log-panel">
+          <div class="current-step-banner">
+            <span class="log-badge">Passo Atual</span>
+            <p id="current-log-quick" class="current-log-text">
+              Aguardando início da execução.
+            </p>
+          </div>
+          <details class="history-details">
+            <summary>Histórico detalhado de operações (<span id="history-count-quick">0</span>)</summary>
+            <ul id="history-list-quick" class="history-list"></ul>
+          </details>
+        </div>
+      </article>
+
+      <!-- Card do Merge Sort -->
+      <article id="card-merge" class="algo-card" hidden>
+        <div class="card-header">
+          <div>
+            <h2>Merge Sort <span class="algo-tag tag-merge">Divisão Balanceada</span></h2>
+            <p class="algo-desc">
+              Divide sempre ao meio e intercala subvetores ordenados. Mantém <strong>O(n log n)</strong> em qualquer entrada.
+            </p>
+          </div>
+          <div class="card-badges">
+            <span id="status-merge" class="status-pill status-ready">Pronto</span>
+            <span class="complexity-badge badge-stable">Todos os casos: O(n log n)</span>
+          </div>
+        </div>
+
+        <!-- Métricas em Tempo Real -->
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <span class="metric-label">Comparações</span>
+            <strong id="comp-merge" class="metric-value">0</strong>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Movimentações (Escritas)</span>
+            <strong id="swap-merge" class="metric-value">0</strong>
+          </div>
+          <div class="metric-box">
+            <span class="metric-label">Progresso (Passos)</span>
+            <strong id="step-merge" class="metric-value">0 / 0</strong>
+          </div>
+        </div>
+
+        <!-- Gráfico de Barras Proporcionais -->
+        <div class="chart-wrapper">
+          <div id="bars-merge" class="bars-container" aria-label="Visualização em barras do Merge Sort"></div>
+        </div>
+
+        <!-- Painel de Log Explicativo -->
+        <div class="log-panel">
+          <div class="current-step-banner">
+            <span class="log-badge">Passo Atual</span>
+            <p id="current-log-merge" class="current-log-text">
+              Aguardando início da execução.
+            </p>
+          </div>
+          <details class="history-details">
+            <summary>Histórico detalhado de operações (<span id="history-count-merge">0</span>)</summary>
+            <ul id="history-list-merge" class="history-list"></ul>
+          </details>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
