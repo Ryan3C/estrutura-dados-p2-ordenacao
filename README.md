@@ -4,6 +4,9 @@
 > 🎥 **Vídeo Explicativo (Apresentação, Simulação e Código):**  
 > **[👉 Clique aqui para assistir ao vídeo completo](INSIRA_AQUI_O_LINK_DO_SEU_VIDEO)**
 
+> **Link para abrir o simulador diretamente no navegador (praticidade):**
+> **https://ryan3c.github.io/estrutura-dados-p2-ordenacao/src/demo/index.html** 
+
 ---
 
 ### Identificação do Projeto
