@@ -2,7 +2,7 @@
 ## Tema A — Ordenação Dividir-para-Conquistar: Quick Sort vs. Merge Sort
 
 > 🎥 **Vídeo Explicativo (Apresentação, Simulação e Código):**  
-> **[👉 Clique aqui para assistir ao vídeo completo](INSIRA_AQUI_O_LINK_DO_SEU_VIDEO)**
+> **[👉 Clique aqui para assistir ao vídeo completo](https://drive.google.com/file/d/1UjdVsoxEoMW6pNPmsdObSM0lXTi2Tpqx/view?usp=drivesdk)**
 
 > **Link para abrir o simulador diretamente no navegador (praticidade):**
 > **https://ryan3c.github.io/estrutura-dados-p2-ordenacao/src/demo/index.html** 
